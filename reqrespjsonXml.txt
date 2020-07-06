@@ -1,0 +1,43 @@
+
+
+    
+@RestController
+public class EmployeeController {
+
+
+    @RequestMapping(method = RequestMethod.GET, path = "/hello")
+    public String printString() {
+        return "Hello World";
+    }
+
+
+    @RequestMapping(method = RequestMethod.GET, path = "/employees", 
+            consumes = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE},
+            produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE}, 
+            headers = "content-type=application/json,application/xml")
+    public List<Employee> employeeList() {
+        List<Employee> empList = new ArrayList<>();
+        empList.add(new Employee(1, "Steve"));
+        empList.add(new Employee(2, "John"));
+
+
+        return empList;
+    }
+    
+    @RequestMapping(method = RequestMethod.GET, path = "/employee", 
+            consumes = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE},
+            produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE}, 
+            headers = "content-type=application/json,application/xml")
+    public Employee employee() {
+        Employee emp = new Employee(1, "Steve");
+
+
+        return emp;
+    }
+}
+
+
+
+
+
+

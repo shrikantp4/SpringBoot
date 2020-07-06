@@ -27,13 +27,10 @@ public class EmployeeService {
 		return employeeRepo.save(employee);
 	}
 
-	public Employee getEmployeeById(String empId) throws EmployeeNotFoundException {
+	public Optional<Employee> getEmployeeById(String empId) throws EmployeeNotFoundException {
 	  Optional<Employee> emp = employeeRepo.findById(empId);
-	  if(!emp.isPresent())
-	
-			throw new EmployeeNotFoundException("its null");
-	
-	  return emp.get();
+	 
+	  return emp;
 	}
 
 	public Employee updateEmployee(String empId, Employee employee) throws EmployeeNotFoundException {

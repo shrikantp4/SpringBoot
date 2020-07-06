@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.querydsl.binding.QuerydslPredicate;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +20,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.capgemini.employee.model.Employee;
 import com.capgemini.employee.service.EmployeeService;
 import com.capgemini.employee.util.EmployeeNotFoundException;
+import com.sun.el.stream.Optional;
 
 @RestController
 public class EmployeeController {
@@ -36,17 +37,13 @@ public class EmployeeController {
 	}
 	
 	@GetMapping("/employee/{empId}")
-	public Employee getEmployeeById(@PathVariable String empId)
+	public ResponseEntity<java.util.Optional<Employee>> getEmployeeById(@PathVariable String empId)
 	{
-		Employee emp = null;
-		try {
+		java.util.Optional<Employee> emp = null;
 			emp = employeeService.getEmployeeById(empId);
-		} catch (EmployeeNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
+			return ResponseEntity.status(HttpStatus.OK).body(emp);
 		}
-		return emp;
-	}
 	
 	@GetMapping("/employee")
 	public List<com.capgemini.employee.model.Employee> getEmployeeBySalary(@RequestParam("min") double min,@RequestParam("max") double max)

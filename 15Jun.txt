@@ -1,0 +1,117 @@
+when container is started - applicaionContext is started
+
+How to create ApplicationContext File
+ApplicationContext
+
+BeanFactory ApplicationContext 
+
+
+BeanFactory vs ApplicationContext
+
+Early vs lazy loading
+
+
+BeanLifeCycle how to implement 
+
+IntilizingBean,Disposable bean is Interface
+
+
+How to make Servlet:   HttpServlet,GenericServlet,Servlet
+
+Init, Destroy
+
+Spring Bean Configuration(ApplicationContext.xml)
+
+Init method="", Destroy method=""
+
+25 Classes implement the lifecycle
+Globally we can define
+
+JSR - Java specification Request
+javax.annotation.postConstructor,predestroy
+
+
+when the destroy method call
+1) modify the servlet
+2) if we r removing the servlet container
+3) shutdown the servlet Container/Tomcat administration page
+
+ApplictionContext is not called destroy method it has to call th by code
+-registershutdownHook
+
+
+init and service methods
+
+->hello word example
+1) download jar files
+Spring bean,spring context,commons.logging(3rd party),expressions,spring core
+
+2)maven
+
+how many depedncy required to do it 
+=> 
+
+-> Autowired  what is required to do autowired?
+Employee,Address
+
+Class Employee{
+Address adress
+}
+
+1) @Autowired
+2) declare the namespace
+3) enabled the annotation <context:annotation-config>
+
+-> @Component  
+
+How many way create object
+1) spring bean config file
+2)annotation- @component - 
+,@autowired
+3)javabased config- @Bean,@configuration
+
+
+-> beanScope
+Singlton
+Prototype
+
+-> reallife Example
+1)every request - new object -- getbean
+thread pool
+data base connection pool
+
+
+
+every ref - new object --- ref---- spring bean configuration file
+ 
+Core Spring Design pattern
+1)Singlton - any bean by default is singlton
+2)Strategy - 
+3) Factory pattern
+4)Abstract Factory patern
+5)builder pattern
+6) DI
+7)Wraper pattern/Decorate Patern
+8) bridge pattern
+9) Lazy loading/
+
+
+PRACTICAL-----------
+1) destroy
+
+ 
+
+2) how many no of dependencies required for core spring example
+   => one
+
+ 
+
+3) prototype
+
+github.com/
+
+--> Spring bean config - no need to hard code the value
+Sol - PropertiesFile- MessageSourceExample
+
+
+
